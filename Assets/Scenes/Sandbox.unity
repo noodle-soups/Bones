@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rotationSmoothing: 10
+  rotationSmoothing: 50
   testInput:
     m_Name: Test Input
     m_Type: 0
@@ -553,6 +553,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Movement Input
       m_Flags: 8
+    - m_Name: 
+      m_Id: e2a143d8-7567-4ba7-a463-2f6bbf7e3d1f
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 0
     m_Flags: 0
 --- !u!54 &878177178
 Rigidbody:
@@ -938,8 +946,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2066896392029128874, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2066896392029128874, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6e5ce6adc1f3944438e6966f9f93979d, type: 2}
     - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
