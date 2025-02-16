@@ -10,7 +10,7 @@ public class PlayerInputManager : MonoBehaviour
     // input actions
     [Header("Input Actions")]
     [SerializeField] public InputAction movement;
-    [SerializeField] public InputAction inputTest1;
+    [SerializeField] public InputAction attack;
     [SerializeField] public InputAction inputTest2;
 
     private void Awake()
@@ -22,14 +22,14 @@ public class PlayerInputManager : MonoBehaviour
     private void OnEnable()
     {
         movement.Enable();
-        inputTest1.Enable();
+        attack.Enable();
         inputTest2.Enable();
     }
 
     private void OnDisable()
     {
         movement.Disable();
-        inputTest1.Disable();
+        attack.Disable();
         inputTest2.Disable();
     }
 

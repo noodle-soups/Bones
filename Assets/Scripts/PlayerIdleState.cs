@@ -30,9 +30,10 @@ public class PlayerIdleState : PlayerBaseState
     private static void HandleStateTransition(PlayerStateManager player)
     {
         if (PlayerInputManager.Instance.GetMovementInput() != Vector3.zero)
-        {
             player.ChangeState(player.runningState);
-        }
+
+        if (PlayerInputManager.Instance.attack.IsPressed())
+            player.ChangeState(player.attackingState);
     }
 
 }

@@ -582,21 +582,29 @@ MonoBehaviour:
       m_Action: Movement
       m_Flags: 0
     m_Flags: 0
-  inputTest1:
-    m_Name: Input Test 1
+  attack:
+    m_Name: Attack
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 2851729d-0b26-4a2f-8ec7-77b8c5c178af
+    m_Id: 0e4fc4c4-e841-4b1c-a89b-133c671553fa
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 9b1acd85-ba6e-47a0-b28a-6a81007f6200
-      m_Path: <Keyboard>/m
+      m_Id: 3816d9fb-486f-4549-8a58-e0d8f7e48265
+      m_Path: <Keyboard>/space
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Input Test 1
+      m_Action: Attack
+      m_Flags: 0
+    - m_Name: 
+      m_Id: ab381122-f273-47f6-bd2a-6ceef55a6ca2
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
       m_Flags: 0
     m_Flags: 0
   inputTest2:

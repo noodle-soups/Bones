@@ -17,6 +17,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerBaseState currentState;
     public PlayerIdleState idleState;
     public PlayerRunningState runningState;
+    public PlayerAttackingState attackingState;
 
 
     private void Awake()
@@ -31,6 +32,7 @@ public class PlayerStateManager : MonoBehaviour
         // states
         idleState = new PlayerIdleState();
         runningState = new PlayerRunningState(playerData);
+        attackingState = new PlayerAttackingState();
     }
 
     private void Start()
