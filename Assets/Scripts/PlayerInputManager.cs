@@ -33,4 +33,11 @@ public class PlayerInputManager : MonoBehaviour
         inputTest2.Disable();
     }
 
+    public Vector3 GetMovementInput()
+    {
+        Vector3 _initialMovementVector = movement.ReadValue<Vector2>();
+        Vector3 _movementVector = new Vector3(_initialMovementVector.x, 0, _initialMovementVector.y);
+        return _movementVector;
+    }
+
 }
