@@ -7,15 +7,22 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Transform tr;
 
+    // scripts
+    [SerializeField] private PlayerData playerData;
+
     //  states
     public PlayerBaseState currentState;
-    public PlayerIdleState idleState = new PlayerIdleState();
-    public PlayerRunningState runningState = new PlayerRunningState();
+    public PlayerIdleState idleState;
+    public PlayerRunningState runningState;
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
+
+        idleState = new PlayerIdleState();
+        runningState = new PlayerRunningState(playerData);
     }
 
     private void Start()

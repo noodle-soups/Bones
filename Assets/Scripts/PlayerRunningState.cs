@@ -4,6 +4,13 @@ using UnityEngine.EventSystems;
 public class PlayerRunningState : PlayerBaseState
 {
 
+    private PlayerData playerData;
+
+    public PlayerRunningState(PlayerData data)
+    {
+        playerData = data;
+    }
+
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Enter State: RUNNING");
@@ -20,7 +27,10 @@ public class PlayerRunningState : PlayerBaseState
     public override void FixedUpdateState(PlayerStateManager player)
     {
         Vector3 _movementInput = PlayerInputManager.Instance.GetMovementInput();
-        player.tr.Translate(Vector3.forward * 10f * Time.fixedDeltaTime);
+        Quaternion _targetRotation = Quaternion.LookRotation(_movementInput);
+
+        player.tr.rotation = Quaternion.Slerp(player.tr.rotation, _targetRotation, 50f * Time.fixedDeltaTime);
+        player.tr.Translate(Vector3.forward * playerData.runSpeed * Time.fixedDeltaTime);
     }
 
 }
