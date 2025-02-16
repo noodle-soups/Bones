@@ -1,13 +1,11 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementManager : MonoBehaviour
 {
 
     // cache
     private Rigidbody rb;
-    private GameObject playerChild;
     private Animator anim;
 
     [Header("States")]
@@ -17,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
+    private float moveSpeedMultiplier = 1;
     [SerializeField] private float rotationSmoothing;
     private Vector3 moveDirection;
     private float xMoveAmount;
@@ -44,8 +43,8 @@ public class PlayerMovement : MonoBehaviour
     {
         //TestInputAction();
         HandleMovement();
+        HandleStates();
         HandleAnimations();
-
     }
 
     private void TestInputAction()
@@ -66,45 +65,51 @@ public class PlayerMovement : MonoBehaviour
         zMoveAmount = _movementVector.y;
         moveDirection = new Vector3(xMoveAmount, 0, zMoveAmount);
 
-        if (moveDirection == Vector3.zero)
+        // clamp walking & running
+        float _walkSpeedThreshold = Mathf.Clamp01(Mathf.Abs(xMoveAmount) + Mathf.Abs(zMoveAmount));
+        if (_walkSpeedThreshold > 0 && _walkSpeedThreshold <= 0.9f)
+            moveSpeedMultiplier = 0.5f;
+        else if (_walkSpeedThreshold > 0.9f && _walkSpeedThreshold <= 1)
+            moveSpeedMultiplier = 1;
+
+        // on move start
+        if (moveDirection.sqrMagnitude > 0.01f)
+            OnMovementStart();
+    }
+
+    private void OnMovementStart()
+    {
+        // rotate
+        Quaternion _targetRotation = Quaternion.LookRotation(moveDirection);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, rotationSmoothing * Time.fixedDeltaTime);
+
+        // move forward
+        transform.Translate(Vector3.forward * (moveSpeed * moveSpeedMultiplier) * Time.fixedDeltaTime, Space.Self);
+    }
+
+    private void HandleStates()
+    {
+        if (moveDirection.sqrMagnitude <= 0.01f)
         {
             isIdle = true;
-            isWalking = false;
-            isRunning = false;
+            isWalking = !isIdle;
+            isRunning = !isIdle;
         }
-
-        // execute move
-        if (movementInput.IsPressed())
+        else if (moveDirection.sqrMagnitude > 0.01f)
         {
             isIdle = false;
-
-            // apply walking logic
-            float _walkMultiplier = Mathf.Clamp01(Mathf.Abs(xMoveAmount) + Mathf.Abs(zMoveAmount));
-            if (_walkMultiplier > 0 && _walkMultiplier <= 0.9f)
+            if (moveSpeedMultiplier == 0.5f)
             {
-                _walkMultiplier = 0.5f;
                 isWalking = true;
                 isRunning = false;
             }
-            else if (_walkMultiplier > 0.9f && _walkMultiplier <= 1)
+            else if (moveSpeedMultiplier == 1)
             {
-                _walkMultiplier = 1;
                 isWalking = false;
                 isRunning = true;
             }
-
-            // rotate
-            Quaternion _targetRotation = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, rotationSmoothing * Time.fixedDeltaTime);
-
-            // move forward
-            transform.Translate(Vector3.forward * (moveSpeed * _walkMultiplier) * Time.fixedDeltaTime, Space.Self);
-
         }
-
-
     }
-
 
     private void HandleAnimations()
     {

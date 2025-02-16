@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &142394411 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
-  m_PrefabInstance: {fileID: 1927551555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +437,7 @@ GameObject:
   - component: {fileID: 878177176}
   - component: {fileID: 878177179}
   - component: {fileID: 878177178}
-  - component: {fileID: 878177177}
+  - component: {fileID: 878177180}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -463,105 +458,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 142394411}
+  - {fileID: 2066896391184858421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &878177177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878177175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c38ba06016a13540b8f519cfa84d102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rotationSmoothing: 50
-  testInput:
-    m_Name: Test Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 12be2039-fc33-4adf-8b01-cff4e29b9fb7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 1188dfe1-85eb-49a3-805b-247357fe83a0
-      m_Path: <Keyboard>/space
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Test Input
-      m_Flags: 0
-    - m_Name: 
-      m_Id: e9f19332-9da5-4fee-9c62-07992b4e7859
-      m_Path: <Gamepad>/buttonSouth
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Test Input
-      m_Flags: 0
-    m_Flags: 0
-  movementInput:
-    m_Name: Movement Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: da1d66b3-dcfc-4cf4-9c09-d9c3457a8bc1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: WASD
-      m_Id: 97f3098b-05cd-4a0d-b39d-8426d97b935c
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 5ba838a9-ae8a-4b38-a7c8-3c532ee716ce
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 8
-    - m_Name: down
-      m_Id: ec2ad8ce-cc82-485f-9554-adc6607df914
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 8
-    - m_Name: left
-      m_Id: cc386a5e-6ba6-4fc4-bb19-ecdd8776a359
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 8
-    - m_Name: right
-      m_Id: ad79864e-7695-4d3e-bdb2-564723aa795b
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 8
-    - m_Name: 
-      m_Id: e2a143d8-7567-4ba7-a463-2f6bbf7e3d1f
-      m_Path: <Gamepad>/leftStick
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 0
-    m_Flags: 0
 --- !u!54 &878177178
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -612,6 +511,89 @@ CapsuleCollider:
   m_Height: 1.4
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &878177180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878177175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc29498e2b686fd4c82eadea55eb8e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isIdle: 0
+  isWalking: 0
+  isRunning: 0
+  moveSpeed: 5
+  rotationSmoothing: 50
+  testInput:
+    m_Name: Test Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3b2fcbc7-a49d-4848-8f9c-8d47a35724f6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  movementInput:
+    m_Name: Movement Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f297255b-85f6-49ff-9851-13b84763ed8a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: WASD
+      m_Id: 881a6ab1-7f74-4882-8598-7f419f1bc8cf
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 75190f91-85a9-4839-8413-6fdcb06f87b3
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 4bc6fc5a-55af-4633-a994-ed99bdd19a0b
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 8
+    - m_Name: left
+      m_Id: a2a3e8e2-6691-4879-b5d7-6a6a39f5aaac
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 7a5230b5-2da5-409c-8e6f-15379b91dcef
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 8
+    - m_Name: 
+      m_Id: 070c8bed-1324-4090-b574-2e2a9dc136bd
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &945275573
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,7 +918,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1927551555
+--- !u!4 &2066896391184858421 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
+  m_PrefabInstance: {fileID: 6428821758984502410}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6428821758984502410
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -944,63 +931,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878177176}
     m_Modifications:
-    - target: {fileID: 2066896392029128874, guid: 45288819fde2143449a96207b14db0bb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2066896392029128874, guid: 45288819fde2143449a96207b14db0bb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6e5ce6adc1f3944438e6966f9f93979d, type: 2}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 3259480196701253689, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2066896392038628118, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+    - target: {fileID: 6823988787974088833, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
       propertyPath: m_Name
-      value: DogPolyart
+      value: Player_Dog
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: f10a3833fb5434047a1e9ba668246a8a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
