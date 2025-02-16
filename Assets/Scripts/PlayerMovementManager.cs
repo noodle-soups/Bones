@@ -8,6 +8,9 @@ public class PlayerMovementManager : MonoBehaviour
     private Rigidbody rb;
     private Animator anim;
 
+    // scripts
+    private PlayerInputManager playerInputManager;
+
     [Header("States")]
     public bool isIdle;
     public bool isWalking;
@@ -21,44 +24,24 @@ public class PlayerMovementManager : MonoBehaviour
     private float xMoveAmount;
     private float zMoveAmount;
 
-    // input actions
-    [Header("Input Actions")]
-    [SerializeField] private InputAction testInput;
-    [SerializeField] private InputAction movementInput;
-
-    private void OnEnable()
-    {
-        testInput.Enable();
-        movementInput.Enable();
-    }
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
+        playerInputManager = GetComponent<PlayerInputManager>();
     }
-
 
     private void FixedUpdate()
     {
-        //TestInputAction();
         HandleMovement();
         HandleStates();
         HandleAnimations();
     }
 
-    private void TestInputAction()
-    {
-        if (testInput.IsPressed())
-        {
-            Debug.Log("Input success");
-        }
-    }
-
     private void HandleMovement()
     {
         // read input
-        Vector2 _movementVector = movementInput.ReadValue<Vector2>();
+        Vector2 _movementVector = playerInputManager.movement.ReadValue<Vector2>();
 
         // compute moveDirection
         xMoveAmount = _movementVector.x;
