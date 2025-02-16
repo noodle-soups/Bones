@@ -10,9 +10,9 @@ public class PlayerAnimationManager : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
-    public void SetBool(string param, bool value)
+    public void SetBool(string animBoolName, bool value)
     {
-        anim.SetBool(param, value);
+        anim.SetBool(animBoolName, value);
     }
 
 }

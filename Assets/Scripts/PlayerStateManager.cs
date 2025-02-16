@@ -53,6 +53,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != newState)
         {
+            currentState.ExitState(this);
             currentState = newState;
             currentState.EnterState(this);
         }

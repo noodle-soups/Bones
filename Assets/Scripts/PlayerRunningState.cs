@@ -9,6 +9,7 @@ public class PlayerRunningState : PlayerBaseState
 
     // variables
     private Vector3 moveInput;
+    private string animBoolName = "isRunning";
 
     public PlayerRunningState(PlayerData data)
     {
@@ -17,16 +18,12 @@ public class PlayerRunningState : PlayerBaseState
 
     public override void EnterState(PlayerStateManager player)
     {
-        Debug.Log("Enter State: RUNNING");
-        player.anim.SetBool("isRunning", true);
+        player.anim.SetBool(animBoolName, true);
     }
 
     public override void UpdateState(PlayerStateManager player)
     {
-        if (PlayerInputManager.Instance.GetMovementInput() == Vector3.zero)
-        {
-            player.ChangeState(player.idleState);
-        }
+        HandleStateTransitions(player);
     }
 
     public override void FixedUpdateState(PlayerStateManager player)
@@ -45,8 +42,15 @@ public class PlayerRunningState : PlayerBaseState
 
     public override void ExitState(PlayerStateManager player)
     {
-        Debug.Log("Enter State: RUNNING");
-        player.anim.SetBool("isRunning", true);
+        player.anim.SetBool(animBoolName, false);
+    }
+
+    private static void HandleStateTransitions(PlayerStateManager player)
+    {
+        if (PlayerInputManager.Instance.GetMovementInput() == Vector3.zero)
+        {
+            player.ChangeState(player.idleState);
+        }
     }
 
 }
