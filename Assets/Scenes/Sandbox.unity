@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 878177179}
   - component: {fileID: 878177178}
   - component: {fileID: 878177180}
+  - component: {fileID: 878177181}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -592,6 +593,44 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: Movement Input
+      m_Flags: 0
+    m_Flags: 0
+--- !u!114 &878177181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878177175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b0973911b77ab4aa88270ad0a168db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
+  inputAttack:
+    m_Name: Input Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 56bc2682-194a-4366-a5ec-e2abcd171401
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3251bebb-6a4f-4857-b12c-56432a25ded9
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Attack
+      m_Flags: 0
+    - m_Name: 
+      m_Id: d48e4ce1-2a59-4c93-bef3-4b10e16772cc
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Attack
       m_Flags: 0
     m_Flags: 0
 --- !u!1 &945275573
