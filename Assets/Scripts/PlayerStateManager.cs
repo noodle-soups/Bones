@@ -8,6 +8,9 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector] public Transform tr;
 
     // scripts
+    [HideInInspector] public PlayerAnimationManager anim;
+
+    // scriptable objects
     [SerializeField] private PlayerData playerData;
 
     //  states
@@ -18,9 +21,14 @@ public class PlayerStateManager : MonoBehaviour
 
     private void Awake()
     {
+        // components
         rb = GetComponent<Rigidbody>();
         tr = GetComponent<Transform>();
 
+        // scripts
+        anim = GetComponent<PlayerAnimationManager>();
+
+        // states
         idleState = new PlayerIdleState();
         runningState = new PlayerRunningState(playerData);
     }

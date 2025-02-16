@@ -20,4 +20,9 @@ public class PlayerIdleState : PlayerBaseState
         // nothing
     }
 
+    public override void ExitState(PlayerStateManager player)
+    {
+        // nothing
+    }
+
 }
