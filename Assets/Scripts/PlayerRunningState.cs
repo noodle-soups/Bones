@@ -21,6 +21,11 @@ public class PlayerRunningState : PlayerBaseState
         player.anim.SetBool(animBoolName, true);
     }
 
+    public override void ExitState(PlayerStateManager player)
+    {
+        player.anim.SetBool(animBoolName, false);
+    }
+
     public override void UpdateState(PlayerStateManager player)
     {
         HandleStateTransitions(player);
@@ -40,17 +45,13 @@ public class PlayerRunningState : PlayerBaseState
         player.tr.Translate(Vector3.forward * playerData.runSpeed * Time.fixedDeltaTime);
     }
 
-    public override void ExitState(PlayerStateManager player)
-    {
-        player.anim.SetBool(animBoolName, false);
-    }
-
     private static void HandleStateTransitions(PlayerStateManager player)
     {
         if (PlayerInputManager.Instance.GetMovementInput() == Vector3.zero)
-        {
             player.ChangeState(player.idleState);
-        }
+
+        if (PlayerInputManager.Instance.attack.IsPressed())
+            player.ChangeState(player.attackingState);
     }
 
 }
