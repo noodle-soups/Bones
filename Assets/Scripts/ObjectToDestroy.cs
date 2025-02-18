@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class ObjectToDestroy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public float objectHealth;
+    public bool isObjectDead = false;
+    //public bool isObjectHittable = true;
+
+    public void OnObjectDeath()
     {
-        
+        isObjectDead = true;
+        Debug.Log("Destroy");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

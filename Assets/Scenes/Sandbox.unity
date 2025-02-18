@@ -789,9 +789,10 @@ GameObject:
   - component: {fileID: 1143907395}
   - component: {fileID: 1143907394}
   - component: {fileID: 1143907393}
+  - component: {fileID: 1143907397}
   m_Layer: 0
   m_Name: Object To Destroy
-  m_TagString: Object To Destory
+  m_TagString: Object To Destroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -885,6 +886,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1143907397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143907392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff95a0a3c860bfd408c1569da590ffd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectHealth: 3
+  isObjectDead: 0
 --- !u!1 &1183274703
 GameObject:
   m_ObjectHideFlags: 0
