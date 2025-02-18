@@ -7,6 +7,9 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Transform tr;
 
+    // references
+    public GameObject swordWeapon;
+
     // scripts
     [HideInInspector] public PlayerAnimationManager anim;
 

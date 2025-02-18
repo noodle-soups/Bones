@@ -4,10 +4,16 @@ public class PlayerAnimationManager : MonoBehaviour
 {
 
     private Animator anim;
+    public AnimatorStateInfo animStateInfo;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+    }
+
+    private void Update()
+    {
+        animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
     }
 
     public void SetBool(string animBoolName, bool value)

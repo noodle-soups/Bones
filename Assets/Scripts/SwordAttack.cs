@@ -20,7 +20,7 @@ public class SwordAttack : MonoBehaviour
 
             // check for death
             if (_scriptObjectToDestroy.objectHealth <= 0)
-                _scriptObjectToDestroy.OnObjectDeath();
+                _scriptObjectToDestroy.ChangeToDead();
 
         }
     }
