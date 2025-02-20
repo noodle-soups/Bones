@@ -4,19 +4,19 @@ public class PlayerAttackingState : PlayerBaseState
 {
 
     private string animBoolName = "isAttacking";
-    private BoxCollider swordCollider;
+    //private BoxCollider swordCollider;
 
     public override void EnterState(PlayerStateManager player)
     {
         player.anim.SetBool(animBoolName, true);
-        swordCollider = player.swordWeapon.GetComponent<BoxCollider>();
-        swordCollider.enabled = true;
+        //swordCollider = player.swordWeapon.GetComponent<BoxCollider>();
+        //swordCollider.enabled = true;
     }
 
     public override void ExitState(PlayerStateManager player)
     {
         player.anim.SetBool(animBoolName, false);
-        swordCollider.enabled = false;
+        //swordCollider.enabled = false;
     }
 
     public override void FixedUpdateState(PlayerStateManager player)
